@@ -3,13 +3,13 @@ layout: page
 title: About
 permalink: /about/
 ---
-Hello I am Puppycat, PhD. I am a Python master.
+Hello I am Cory and I am a student at UCLA studying Applied Mathematics!
 
 ## More information
 
-My favorite food is spinach. I like to SCREAM when I don't get my way but that's okay because I'm cute.
+My favorite food is ice cream. I like to SCREAM when I don't get my ice cream.
 
-![](/images/puppycat.jpg){:height="300px"}
+![](/images/kevin.jpg){:height="300px"}
 
 ### Contact me
 
