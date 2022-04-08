@@ -9,7 +9,7 @@ Hello I am Cory and I am a student at UCLA studying Applied Mathematics!
 
 My favorite food is ice cream. I like to SCREAM when I don't get my ice cream.
 
-![](/images/kevin.jpg){:height="300px"}
+![](/images/icarly_freddie.jpg){:height="300px"}
 
 ### Contact me
 
