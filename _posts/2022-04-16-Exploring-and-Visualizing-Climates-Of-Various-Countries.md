@@ -53,12 +53,12 @@ countries.to_sql("countries", conn, if_exists = "replace", index = False)
 Congrats! We have just created out database. Now lets check to see if we did it correctly.
 
 ```python
-#checking our tables in our newly created database
+#checking to see if the tables are correct
 cursor = conn.cursor()
 cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
 print(cursor.fetchall())
 
-#checking to see if we populated the database correctly
+#checking to see the columns of all our tables
 cursor.execute("SELECT sql FROM sqlite_master WHERE type='table';")
 for result in cursor.fetchall():
     print(result[0])
@@ -117,8 +117,10 @@ import calendar
 
 #our linear regression function
 def coef(data_group):
-    x = data_group[["Year"]] # 2 brackets because X should be a df
-    y = data_group["Temp"]   # 1 bracket because y should be a series
+    #X is a df
+    x = data_group[["Year"]]
+    #y is a series 
+    y = data_group["Temp"]   
     LR = LinearRegression()
     LR.fit(x, y)
     return LR.coef_[0]
@@ -128,17 +130,17 @@ def temperature_coefficient_plot(country, year_begin, year_end, month, min_obs, 
     this function takes in a given country, starting year, ending year, month, minimum required years, and additional arguments for plot customization.
     it returns an interactive plotly data visualization with labels, titles, and more interactive information.
     """
-    #get the relevant dataframe from specified country, year span, and month
+    #get the specified dataframe
     df = query_climate_database(country, year_begin, year_end, month)
-    #filter out stations with fewer years of data than min_obs
+    #making sure stations that dont have the minimum amount of years aren't included
     df['num_obs'] = df.groupby('NAME')['Year'].transform(len)
     df = df[df['num_obs'] >= min_obs]
-    #create column 'Estimated Yearly Increase' containing slope of linear regression
+    #creating our new yearly increase column in our df
     coefs = df.groupby(["NAME", "Month","LATITUDE","LONGITUDE"]).apply(coef)
     coefs = coefs.reset_index()
     coefs.rename(columns={0: 'Estimated Yearly Increase'}, inplace = True)
     coefs = coefs.round(4)
-    #make figure
+    #making the figure
     fig = px.scatter_mapbox(coefs,
                         lat = "LATITUDE", 
                         lon = "LONGITUDE",
@@ -154,7 +156,8 @@ def temperature_coefficient_plot(country, year_begin, year_end, month, min_obs, 
 Now that we've done that lets try it out by getting the yearly temperature changes in January from India between 1980 and 2020.
 
 ```python
-color_map = px.colors.diverging.RdGy_r # choose a colormap
+#choosing the colormap
+color_map = px.colors.diverging.RdGy_r
 
 fig = temperature_coefficient_plot("India", 1980, 2020, 1,
                                    min_obs = 10,
