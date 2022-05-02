@@ -43,7 +43,7 @@ class ImdbSpider(scrapy.Spider):
 
 In order for us to find new recommended shows or movies we must first write three different parse functions which will help us.
 
-Here's how our first parse() function:
+Here's how our first parse() function looks like:
 
 ```python
 def parse(self,response):
@@ -122,7 +122,7 @@ Open it up and see whats inside!
 
 ## Visualizing our results
 
-Now opening up your python editor of choice, lets create a visual for csv results.
+Now opening up your python editor of choice, lets create a visual for our csv results:
 
 ```python
 import pandas as pd
@@ -145,11 +145,11 @@ df.rename(columns = {0 : "Movie or TV Show", 1: "Number of shared actors"}, inpl
 df
 ```
 
-Here's how the table of the show 'Community' looked like:
+Here's how the table of the show 'Community' looks like:
 
 ![alt text](https://i.gyazo.com/9c3858e1c229bed487f4b3a6bae36116.png)
 
-Now using Plotly, lets create a histogram of the top 10 movies or shows that feature the same actors as our starting movie or show.
+Now using Plotly, lets create a histogram of the top 10 movies or shows that feature the same actors as our starting movie or show:
 
 ```python
 import plotly.express as px
