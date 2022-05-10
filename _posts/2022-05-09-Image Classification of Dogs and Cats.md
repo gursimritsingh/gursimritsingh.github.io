@@ -412,7 +412,9 @@ Epoch 20/20
 plot_history(history)
 ```
 
-Our third model now has **71** validation accuracy and throughout training it went from 57% to 71%.
+![alt text](https://i.gyazo.com/c7a2a997707a920a5921b079c437ad61.png)
+
+Our third model now has **71%** validation accuracy and throughout training it went from 57% to 71%.
 This is 5% more than our second model.
 Looking at our plot there seems to be no overfitting on it which is definitely an improvement over models one and two.
 
