@@ -12,7 +12,7 @@ Some of my favorite hobbies include watching movies, reading, and coding.
 My favorite movie is 'Despicable Me'. My favorite book is 'Percy Jackson & the Olympians: The Titan's Curse'. My favorite
 coding language is Python of course!
 
-![alt text](https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_.jpg)
+![](/images/despicable me.jpg){:height="300px"}
 
 ### Contact me
 
