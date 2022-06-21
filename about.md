@@ -3,14 +3,19 @@ layout: page
 title: About
 permalink: /about/
 ---
-Hello I am Cory and I am a student at UCLA studying Applied Mathematics!
+Hi I'm Gurs and I'm a student studying applied math and computer science at UCLA!
 
 ## More information
 
-My favorite food is ice cream. I like to SCREAM when I don't get my ice cream.
+Some of my favorite hobbies include watching movies, reading, and coding.
 
-![](/images/icarly_freddie.jpg){:height="300px"}
+My favorite movie is 'Despicable Me'. My favorite book is 'Percy Jackson & the Olympians: The Titan's Curse'. My favorite
+coding language is Python of course!
+
+![alt text](https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_.jpg)
 
 ### Contact me
 
-[puppycat@puppycat.org](mailto:puppycat@puppycat.org)
+You can reach me further at:
+
+sgursimrit@gmail.com
