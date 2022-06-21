@@ -7,7 +7,7 @@ Hi I'm Gurs and I'm a student studying applied math and computer science at UCLA
 
 ## More information
 
-Some of my favorite hobbies include watching movies, reading, and coding.
+Some of my hobbies include watching movies, reading, and coding.
 
 My favorite movie is 'Despicable Me'.
 
