@@ -9,8 +9,11 @@ Hi I'm Gurs and I'm a student studying applied math and computer science at UCLA
 
 Some of my favorite hobbies include watching movies, reading, and coding.
 
-My favorite movie is 'Despicable Me'. My favorite book is 'Percy Jackson & the Olympians: The Titan's Curse'. My favorite
-coding language is Python of course!
+My favorite movie is 'Despicable Me'.
+
+My favorite book is 'Percy Jackson & the Olympians: The Titan's Curse'.
+
+My favorite coding language is Python of course!
 
 ![](/images/despicable me.jpg){:height="300px"}
 
