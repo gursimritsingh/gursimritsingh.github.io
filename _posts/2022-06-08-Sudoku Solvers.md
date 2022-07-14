@@ -6,7 +6,10 @@ permalink: posts/blog-post-final
 author: Gursimrit, Roman, Nicola
 ---
 
-In this blog post we'll talk about how we used deep learning to create a Sudoku solver. 
+In this blog post we'll talk about how we used deep learning to create a Sudoku solver. Unlike my other posts this won't necessarily
+be a tutorial from the first step to the last step. Instead this will be more like an explanataion and overview of the final project me
+and my group worked on for our PIC16B class.
+ 
 The link to our Github repo can be found here: https://github.com/romakouz/sudoku.project
 
 In the repository there is also a helpful README file that you guys can check out.
