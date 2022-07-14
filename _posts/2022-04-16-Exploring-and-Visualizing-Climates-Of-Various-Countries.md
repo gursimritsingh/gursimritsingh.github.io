@@ -174,3 +174,98 @@ write_html(fig, "india_plotly.html")
 Since this is a function we created we can see this interactive geographic scatterplot with any country and time frame of our choosing.
 
 {% include china_plotly.html %}
+
+# Additional Visualizations
+
+How does the average yearly temperature vary between two countries in a specific month?
+
+```python
+def compare_two_countries(countries, year_begin, year_end, month, **kwargs):
+    """
+    Given the desired countries (tuple or list of length 2), starting/ending year for the 
+    data (int), a specific month (int), and additional keyword 
+    arguments to be passed in to px.line(), we will return 
+    a faceted line plot, divided by country, over time for the average
+    temperature in the specified month each year. 
+    """
+
+    #query two times, one for each country
+    df1 = query_climate_database(countries[0], year_begin, year_end, month)
+    df2 = query_climate_database(countries[1], year_begin, year_end, month)
+    
+    #concatenate dataframes on top of each other
+    df = pd.concat([df1, df2], ignore_index = True)
+
+    #group by year and country and compute their average temperature
+    df = (df.groupby(["Year", "Country"])["Temp"].apply(np.mean)).reset_index()
+    
+    #rename temp column
+    df = df.rename(columns = {"Temp" : "Temperature"})
+
+    #create adaptive title
+    title = f"{countries[0]} vs. {countries[1]} in 
+    {calendar.month_name[month]}, Years {year_begin} - {year_end}
+        <br> <sup> Average Temperature in °C</sup>" #adds newline and subtitle
+    
+    #lineplot
+    fig = px.line(df, x = "Year", y = "Temperature",
+                  facet_col = "Country", #what to facet on
+                  facet_col_spacing = .09, #increase horizontal spacing between facets
+                  title = title,
+                  **kwargs)
+
+    #change facet title to just be the country name
+    fig.for_each_annotation(lambda a: 
+        a.update(text=a.text.replace("Country=","")))      
+
+    fig.show()
+```
+Example of the Line Plot:
+```python
+conn = sqlite3.connect("temps.db")
+compare_two_countries(("United States", "Canada"), 1990, 2010, 2,
+                      template = 'plotly_dark')
+conn.close()
+```
+{% include canada.html %}
+
+What is the distribution of temperatures like for a country over time in a specific month?
+
+```python
+def boxplot_over_time(country, year_begin, year_end, month, **kwargs):
+    """
+    Given the desired country (string), starting/ending year for the 
+    data (int), a specific month (int), and additional keyword 
+    arguments to be passed in to px.box(), we will return multiple box
+    plots of temperature for each year in the specified month, with added
+    hover data.
+    """
+
+    #query the data base
+    df = query_climate_database(country, year_begin, year_end, month)
+
+    #rename the temp column
+    df = df.rename(columns = {"Temp" : "Temperature"})
+    
+    #make adaptive title 
+    title = f"Temperature Distribution in {country} in {calendar.month_name[month]}, Year {year_begin} - {year_end}"
+
+    #make the box plot
+    fig = px.box(df, x = "Year", y = "Temperature",
+                 notched = True, #makes indents around the mean
+                 title = title,
+                 hover_data = ["Country", "Month"], #added hover data on the outliers
+                 **kwargs)
+
+    fig.show()
+```
+Example of the Box Plot:
+```python
+conn = sqlite3.connect("temps.db")
+boxplot_over_time("Brazil", 2000, 2005, 3, template = 'plotly_dark')
+conn.close()
+```
+
+{% include brazil.html %}
+
+Thank you for reading and following along!
